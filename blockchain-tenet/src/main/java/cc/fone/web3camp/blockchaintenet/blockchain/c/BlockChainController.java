@@ -56,7 +56,7 @@ public class BlockChainController {
 
     @PostMapping(value = "/new")
     @ResponseBody
-    public String pushTrx(String sender,String recipient,int amount) {
+    public String pushTrx(@RequestParam("sender")String sender,@RequestParam("recipient")String recipient,@RequestParam("amount")int amount) {
         Transaction trx=new Transaction(sender,recipient,amount);
         transactions.add(trx);
         return "Transactions will be added to Block";

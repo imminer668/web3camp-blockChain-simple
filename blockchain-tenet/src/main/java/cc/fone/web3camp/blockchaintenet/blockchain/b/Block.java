@@ -6,7 +6,6 @@ package cc.fone.web3camp.blockchaintenet.blockchain.b;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.codec.binary.Hex;
 
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
