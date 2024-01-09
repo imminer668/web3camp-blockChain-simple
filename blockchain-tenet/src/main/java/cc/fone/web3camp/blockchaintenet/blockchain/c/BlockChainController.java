@@ -3,6 +3,7 @@ package cc.fone.web3camp.blockchaintenet.blockchain.c;
 import cc.fone.web3camp.blockchaintenet.blockchain.b.Block;
 import cc.fone.web3camp.blockchaintenet.blockchain.b.Blockchain;
 import cc.fone.web3camp.blockchaintenet.blockchain.b.Transaction;
+import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.json.JSONUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +41,8 @@ public class BlockChainController {
 
             Block block = new Block(nonce, previousHash, timeStamp, transactions); // 创建区块
             String data = block.toString(); // 获取区块数据
-            String hash = calculateHash(data); // 计算哈希值
-
+            //String hash = calculateHash(data); // 计算哈希值
+            String hash= DigestUtil.sha256Hex(data);
             if (hash.startsWith(prefix)) {
                 System.out.println("挖矿成功！Nonce值为: " + nonce);
                 System.out.println("对应的哈希值为: " + hash);
